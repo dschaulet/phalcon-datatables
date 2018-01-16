@@ -31,7 +31,7 @@ class QueryBuilder extends AdapterInterface{
 
     $this->bind('column_search', false, function($column, $search) {
       $key = "keyc_" . str_replace(" ", "", str_replace(".", "", $column));
-      $this->column_search[] = "{$column} ILIKE :{$key}:";
+      $this->column_search[] = "{$column}  ILIKE :{$key}:";
       $this->_bind[$key] = "%{$search}%";
     });
 
