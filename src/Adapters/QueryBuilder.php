@@ -19,7 +19,8 @@ class QueryBuilder extends AdapterInterface{
       'page'    => 1,
     ]);
 
-    $total = $builder->getPaginate();
+    //$total = $builder->getPaginate(); funciona versao 3.x
+    $total = $builder->paginate(); // funciona na versão 4.x
     $this->global_search = [];
     $this->column_search = [];
 
@@ -54,7 +55,8 @@ class QueryBuilder extends AdapterInterface{
       'page'    => $this->parser->getPage(),
     ]);
 
-    $filtered = $builder->getPaginate();
+    //$filtered = $builder->getPaginate(); funciona na versao 3.x
+    $filtered = $builder->paginate(); // funciona na versão 4.x
 
     return $this->formResponse([
       'total'     => $total->total_items,
